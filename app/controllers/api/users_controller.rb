@@ -5,7 +5,15 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render :show
         else
-            render json: @user.errors.full_messages, status: 401
+            errors = {}
+            @user.errors.full_messages.each do |msg|
+                if msg.include?("Username") && msg.include?("taken")
+                    errors[:username] = "taken"
+                elsif msg.include?("Password") && msg.include?("short")
+                    errors[:password] = "short"
+                end
+            end
+            render json: errors, status: 401
         end
     end
 
