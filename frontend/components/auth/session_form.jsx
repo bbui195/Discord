@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -31,8 +32,7 @@ class SessionForm extends React.Component {
         }
 
         const user = Object.assign({}, this.state);
-        this.props.processForm(user)
-            // .then(() => this.props.history.push("/"));
+        this.props.processForm(user);
     }
 
     handleChange(type) {
@@ -57,6 +57,13 @@ class SessionForm extends React.Component {
     
     render() {
         return (
+            <CSSTransition
+                in={true}
+                appear={true}
+                timeout={300}
+                classNames={"form-transition"}
+                enter={false}
+            >
             <form id="session-form" onSubmit={this.handleSubmit}>
                 <h2>{this.props.formType === "login" ? "Welcome back!" : "Create an account"}</h2>
                 {this.props.formType === "login" ? 
@@ -88,6 +95,7 @@ class SessionForm extends React.Component {
                     </Link>
                 </p>
             </form>
+            </CSSTransition>
         );  
     }
 }
