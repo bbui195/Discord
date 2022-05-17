@@ -19,8 +19,8 @@
             margin-bottom: 8px;
             border-radius: 24px;
             background-color: #36393f;
-            transition: border-radius 0.2s, background-color 0.2s;
-            -webkit-transition: border-radius 0.2s, background-color 0.2s;
+            transition: border-radius 0.2s, background-color 0.2s, color 0.2s;
+            -webkit-transition: border-radius 0.2s, background-color 0.2s, color 0.2s;
         }
         .index-item:hover, .index-item.active {
             border-radius: 16px;
@@ -57,6 +57,7 @@
         }
         .index-item:hover:after {
             content: attr(name);
+            width: max-content;
             display: block;
             background-color: #18191c;
             color: white;
@@ -83,6 +84,54 @@
             border-radius: 1px;
             background-color: #4f545c7a;
             margin-bottom: 8px;
+        }
+
+        #server-join {
+            color: rgb(59, 165, 93);
+            text-align: center;
+            line-height: 42px;
+            user-select: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        #server-join:before {
+            content: none;
+        }
+        #server-join:hover:after {
+            content: "Add a Server";
+        }
+        #server-join:hover {
+            color: white;
+            background-color: rgb(59, 165, 93);
+        }
+    }
+
+    .logged-in-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: white;
+        z-index: 10;
+    }
+}
+
+#app-container {
+    .main {
+        width: calc(100% - 72px);
+        background-color: #36393f;
+        display: flex;
+
+        .channel-index {
+            width: 240px;
+            background-color: rgb(47, 49, 53);
+        }
+
+        .main-show {
+            width: calc(100% - 240px);
+            background-color: #36393f;
         }
     }
 }
