@@ -1,7 +1,7 @@
 import { OPEN_MODAL, CLOSE_MODAL, CLOSE_MODALS } from "../../actions/modal_actions";
 
 const initialState = {
-    addServer: true
+    // addServer: true
 }
 
 const modalsReducer = (state = initialState, action) => {

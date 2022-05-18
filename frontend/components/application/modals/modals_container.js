@@ -4,7 +4,8 @@ import Modals from "./modals"
 
 const mapStateToProps = (state) => {
     return {
-        modals: state.ui.modals
+        modals: state.ui.modals,
+        username: state.entities.users[state.session.id].username
     };
 };
 

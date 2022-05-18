@@ -60,7 +60,7 @@ body {
     // }
 
     div.add-server-page-enter {
-        left: -100%;
+        left: 100%;
         transition: all 0.5s;
     }
 
@@ -95,7 +95,8 @@ body {
     }
 }
 
-#modals-container .tell-more {
+#modals-container .tell-more, .customize-server {
+    text-align: center;
     user-select: none;
     display: flex;
     flex-direction: column;
@@ -107,8 +108,30 @@ body {
     left: 0;
     transform: translateY(-50%);
     width: calc(100% - 32px);
+    * {
+        user-select: none;
+        margin-bottom: 8px;
+    }
+
+    .skip {
+        cursor: pointer;
+        display: inline;
+        color: #0068e0;
+    }
+    .skip:hover {
+        text-decoration: underline;
+    }
+    p {
+        margin-top: 14px;
+        margin-bottom: 22px;
+    }
+    .unsure {
+        margin-top: 12px;
+        margin-bottom: 14px;
+    }
 }
 
+// #modals-container .create-options {
 #modals-container .create-options {
     display: flex;
     padding: 24px 16px 16px 16px;
@@ -125,25 +148,6 @@ body {
     * {
         user-select: none;
         margin-bottom: 8px;
-    }
-    h1 {
-        font-weight: bold;
-        font-size: 26px;
-    }
-    p {
-        color: rgb(79, 86, 96);
-        font-size: 15px;
-        line-height: 20px;
-        margin-bottom: 20px;
-    }
-    span {
-        display: block;
-        text-align: left;
-        margin-bottom: 8px;
-        margin-top: 18px;
-        font-size: 12px;
-        font-weight: bold;
-        color: rgb(79, 86, 96);
     }
     .options-container {
         width: calc(100% + 14px);
@@ -205,5 +209,78 @@ body {
     }
     .create-option:active {
         background-color: rgb(225, 227, 230);
+    }
+    .cap-label {
+        display: block;
+        text-align: left;
+        margin-bottom: 8px;
+        margin-top: 18px;
+        font-size: 12px;
+        font-weight: bold;
+        color: rgb(79, 86, 96);
+    }
+    h1 {
+        font-weight: bold;
+        font-size: 26px;
+    }
+    p {
+        color: rgb(79, 86, 96);
+        font-size: 15px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+
+    .back {
+        text-align: left;
+        font-size: 14px;
+        margin-top: 14px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    #server-name {
+        padding: 10px;
+        height: 20px;
+        border: none;
+        background-color: #e3e5e8;
+    }
+    #server-name:focus {
+        outline: none;
+    }
+    form {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    button {
+        position: absolute;
+        bottom: -8px;
+        right: 0;
+        height: 38px;
+        width: 96px;
+        border: none;
+        color: white;
+        background-color: #5865f2;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    button:hover {
+        background-color: #4752c4;
+    }
+    button:active {
+        background-color: #3c45a5;
+    }
+    .agree {
+        margin-top: 0;
+        text-align: left;
+        font-size: 12px;
+    }
+    .guidelines {
+        cursor: pointer;
+        display: inline;
+        color: #0068e0;
+        font-weight: bold;
     }
 }
