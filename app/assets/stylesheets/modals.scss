@@ -1,0 +1,209 @@
+body {
+    overflow-x: hidden;
+}
+#modals-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    .modal-dim {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.85;
+    }
+    .modal-dim.dim-transition-appear {
+        opacity: 0;
+    }
+    .modal-dim.dim-transition-appear-active {
+        opacity: 0.85;
+        transition: all 500ms;
+        transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    #add-server {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 440px;
+        // height: 558px;
+        background-color: white;
+        z-index: 6;
+        border-radius: 4px;
+        // clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); //left top
+        clip-path: polygon(0% -1000px, 100% -1000px, 100% 1000px, 0% 1000px); //left top
+    }
+    #add-server.add-modal-transition-appear {
+        // clip-path: polygon(20% 30%, 80% 30%, 80% 70%, 20% 70%);
+        clip-path: polygon(20% -100px, 80% -100px, 80% 200px, 20% 200px);
+    }
+    #add-server.add-modal-transition-appear-active {
+        // clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0% -300px, 100% -300px, 100% 300px, 0% 300px);
+        transition: all 500ms;
+        // transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    // div.add-server-page-enter {
+    //     left: 100%;
+    //     transition: all 0.5s;
+    // }
+
+    // div.add-server-page-enter-active {
+    //     left: 0%;
+    // }
+
+    div.add-server-page-enter {
+        left: -100%;
+        transition: all 0.5s;
+    }
+
+    div.add-server-page-enter-active {
+        left: 0%;
+    }
+
+    div.add-server-page-exit {
+        left: 0%;
+        transition: all 0.5s;
+    }
+
+    div.add-server-page-exit-active {
+        left: 100%;
+    }
+
+    .close-button {
+        position: absolute;
+        display: block;
+        top: 16px;
+        right: 16px;
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        color: rgb(167, 171, 176);
+        cursor: pointer;
+        transition: all 0.2s;
+        // border: 1px solid black;
+    }
+    .close-button:hover {
+        color: black;
+    }
+}
+
+#modals-container .tell-more {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px 16px 16px;
+    background-color: white;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    width: calc(100% - 32px);
+}
+
+#modals-container .create-options {
+    display: flex;
+    padding: 24px 16px 16px 16px;
+    background-color: white;
+    border-radius: 4px;
+    // position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    width: calc(100% - 32px);
+    flex-direction: column;
+    text-align: center;
+    * {
+        user-select: none;
+        margin-bottom: 8px;
+    }
+    h1 {
+        font-weight: bold;
+        font-size: 26px;
+    }
+    p {
+        color: rgb(79, 86, 96);
+        font-size: 15px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+    span {
+        display: block;
+        text-align: left;
+        margin-bottom: 8px;
+        margin-top: 18px;
+        font-size: 12px;
+        font-weight: bold;
+        color: rgb(79, 86, 96);
+    }
+    .options-container {
+        width: calc(100% + 14px);
+        overflow-y: scroll;
+        // height: 322px;
+        height: 322px;
+        margin-bottom: 28px;
+        position: relative;
+    }
+    
+    h2 {
+        // font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    .join-server {
+        height: 34px;
+        line-height: 34px;
+        font-size: 14px;
+        background-color: rgb(106, 116, 128);
+        color: white;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .join-server:hover {
+        background-color: rgb(79, 86, 96);
+    }
+    .join-server:active {
+        background-color: rgb(68, 75, 83);
+    }
+}
+
+#add-server {
+    .create-option {
+        position: relative;
+        cursor: pointer;
+        text-align: left;
+        font-weight: bold;
+        display: block;
+        border: 1px solid lightgray;
+        margin-bottom: 8px;
+        height: 64px;
+        font-size: 15px;
+        line-height: 64px;
+        padding-left: 64px;
+        border-radius: 8px;
+    }
+    .create-option:after {
+        content: ">";
+        display: block;
+        position: absolute;
+        right: 16px;
+        top: 0;
+        color: gray;
+    }
+    .create-option:hover {
+        background-color: rgb(231, 233, 235);
+    }
+    .create-option:active {
+        background-color: rgb(225, 227, 230);
+    }
+}

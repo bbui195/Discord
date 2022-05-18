@@ -1,9 +1,10 @@
 import { combineReducers } from "redux";
+import modalsReducer from "./ui/modals_reducer";
 
 // import { OPEN_MODAL } from "../actions/modal_actions";
 
 const uiReducer = combineReducers({
-
+    modals: modalsReducer
 });
 
 // const uiReducer = (state = {}, action) => {

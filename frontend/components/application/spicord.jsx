@@ -5,13 +5,16 @@ import { Switch } from "react-router-dom";
 import Splash from "../splash";
 import ServerIndex from "./server_index";
 import HomeContainer from "./home/home_container";
+import ModalsContainer from "./modals/modals_container";
+
 class Spicord extends React.Component{
 
 
     render() {
         return this.props.loggedIn?
             (<div id="app-container">
-                <ServerIndex openAddServerModal={this.openAddServerModal} />
+                <ModalsContainer />
+                <ServerIndex openAddServerModal={this.props.openAddServerModal} />
                 <div className="logged-in-container">
                     <p>Logged in as {this.props.currentUser ? this.props.currentUser.username : null}</p>
                     <button onClick={this.props.logout}>Logout</button>
@@ -35,5 +38,4 @@ class Spicord extends React.Component{
             </Switch>);
     }
 }
-
 export default Spicord;

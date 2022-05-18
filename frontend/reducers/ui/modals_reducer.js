@@ -1,6 +1,10 @@
 import { OPEN_MODAL, CLOSE_MODAL, CLOSE_MODALS } from "../../actions/modal_actions";
 
-const modalsReducer = (state = {}, action) => {
+const initialState = {
+    addServer: true
+}
+
+const modalsReducer = (state = initialState, action) => {
     Object.freeze(state);
     switch(action.type) {
         case OPEN_MODAL:

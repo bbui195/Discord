@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { openAddServerModal } from "../../actions/modal_actions";
 import { logout } from "../../actions/session_actions";
 import Spicord from "./spicord";
 
@@ -12,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         logout: () => dispatch(logout()),
-        openAddServerModal: () => dispatch()
+        openAddServerModal: () => dispatch(openAddServerModal())
     };
 };
 

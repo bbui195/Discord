@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 
 class ServerIndex extends React.Component {
 
-
-
     render() {
         return (
             <div id="server-index">
