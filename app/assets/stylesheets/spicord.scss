@@ -78,6 +78,7 @@
             height: 20px;
             line-height: 20px;
             border-radius: 6px;
+            z-index: 5;
         }
         .index-item:active:after {
             transform: translateY(-50%) translateY(-2px);
