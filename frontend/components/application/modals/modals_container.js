@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { closeModals } from "../../../actions/modal_actions";
+import { createServer } from "../../../actions/server_actions";
 import Modals from "./modals"
 
 const mapStateToProps = (state) => {
@@ -11,7 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        closeModals: () => dispatch(closeModals())
+        closeModals: () => dispatch(closeModals()),
+        createServer: (server) => dispatch(createServer(server))
     };
 };
 

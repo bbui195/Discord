@@ -49,6 +49,8 @@ class CreateServerModal extends React.Component {
 
     handleCreate(e) {
         e.preventDefault();
+        this.props.createServer({name: this.state.serverName})
+            .then(this.props.closeModals);
     }
 
     render() {
