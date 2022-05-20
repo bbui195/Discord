@@ -9,7 +9,8 @@ class Modals extends React.Component {
                 <div id="modals-container">
                     {this.props.modals.addServer ? <CreateServerModal {...this.props}/> : null}
                     
-                </div> : null}
+                </div>
+                : null}
             </>
         );
     }
