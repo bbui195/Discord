@@ -9,7 +9,7 @@ class ServerSettings extends React.Component {
         this.state = {
             selected: "Overview",
             name: this.props.server.name,
-            unsaved: true
+            unsaved: false
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);

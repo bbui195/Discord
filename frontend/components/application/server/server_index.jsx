@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 class ServerIndex extends React.Component {
 
     componentDidMount() {
-        console.log("fetching servers");
         this.props.fetchServers();
     }
     render() {

@@ -7,7 +7,7 @@ class ServerShow extends React.Component {
         super(props);
         this.state = {
             options: false,
-            settings: true
+            settings: false
         };
         this.toggleOptions = this.toggleOptions.bind(this);
         this.toggleServerSettings = this.toggleServerSettings.bind(this);
