@@ -1,1 +1,2 @@
-json.extract! server, :id, :owner_id, :name
+json.extract! server, :id, :name
+json.set! 'ownerId', server.owner_id

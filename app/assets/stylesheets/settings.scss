@@ -1,0 +1,156 @@
+
+
+
+.settings {
+    cursor: auto;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(47, 49, 54);
+    z-index: 100;
+    .settings-left {
+        height: 100%;
+        // height: 300px;
+        // width: 40%;
+        // width: calc(50vw - 291px);
+        width: calc(50vw - 255px);
+        min-width: 226px;
+        // border: 1px solid #008000;
+        position: relative;
+        .settings-index {
+            height: 100%;
+            width: 192px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: rgb(47, 49, 54);
+            padding: 60px 0px 60px 16px;
+            // border: 1px solid white;
+            .settings-label {
+                color: rgb(150, 152, 157);
+                text-transform: uppercase;
+                font-size: 10px;
+                line-height: 10px;
+                font-weight: bold;
+                padding-left: 10px;
+                // margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .settings-index-item {
+                margin-top: 2px;
+                margin-bottom: 2px;
+                // margin-right: 5px;
+                font-size: 14px;
+                padding: 6px 10px 6px 10px;
+                width: 160px;
+                height: 16px;
+                line-height: 16px;
+                color: rgb(185, 187, 190);
+                border-radius: 4px;
+                cursor: pointer;
+                // border: 1px solid white;
+
+                // background-color: rgb(66, 70, 77);
+            }
+            .settings-index-item:hover {
+                background-color: rgb(60, 63, 69);
+                color: rgb(220, 221, 222);
+                
+            }
+            .settings-index-item:active, .settings-index-item.selected {
+                background-color: rgb(66, 70, 77);
+                color: white;
+            }
+            
+        }
+        // overflow: hidden scroll;
+    }
+    .settings-information {
+        position: relative;
+        height: 100%;
+        width: calc(50vw + 291px);
+        background-color: rgb(54, 57, 63);
+        -webkit-box-flex: 1;
+        // padding: 60px 70px 80px 40px;
+        .information-container {
+            min-width: 460px;
+            max-width: 660px;
+            width: 85%;
+            position: relative;
+            padding: 60px 40px 80px 40px;
+            h1 {
+                font-weight: bold;
+                font-size: 18px;
+            }
+            .close-button {
+                cursor: pointer;
+                position: absolute;
+                width: 28px;
+                height: 28px;
+                right: 34px;
+                top: 54px;
+                // right: 0;
+                // top: 0;
+                font-size: 24px;
+                line-height: 25px;
+                text-align: center;
+                color: rgb(185, 187, 190);
+                border: 2px solid rgb(185, 187, 190);
+                border-radius: 100%;
+            }
+            .close-button:after {
+                content: "ESC";
+                font-size: 10px;
+                font-weight: bold;
+                display: block;
+                position: absolute;
+                top: calc(100% + 3px);
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+            }
+            .close-button:hover {
+                color: rgb(220, 221, 222);
+                background-color: rgb(64, 68, 75);
+            }
+        }
+        // border: 1px solid blue;
+    }
+    .settings-right-fill {
+        width: calc(50vw + 291px);
+    }
+}
+
+.settings.settings-transition-enter {
+    opacity: 0;
+    transform: scale(200%);
+    transition: all 0.5s;
+}
+
+.settings.settings-transition-enter-active {
+    opacity: 1;
+    transform: scale(100%);
+}
+
+.settings.settings-transition-exit {
+    opacity: 1;
+    transform: scale(100%);
+    transition: all 0.5s;
+}
+
+.settings.settings-transition-exit-active {
+    opacity: 0;
+    transform: scale(200%);
+}
+
+// <div className="settings">
+//     <div className="settings-index">
+
+//     </div>
+//     <div className="settings-information">
+
+//     </div>
+// </div>

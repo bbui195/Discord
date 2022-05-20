@@ -124,7 +124,7 @@ class CreateServerModal extends React.Component {
                             in={this.state.customize}
                             timeout={500}
                             classNames={"add-server-page"}
-                            onEnter={(container)=> document.getElementById("server-name").focus()}
+                            onEntered={(container)=> document.getElementById("server-name").focus()}
                             mountOnEnter
                             unmountOnExit
                         >
