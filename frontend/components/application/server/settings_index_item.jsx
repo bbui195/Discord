@@ -9,7 +9,8 @@ class SettingsIndexItem extends React.Component {
         }
         return (
             <div name={this.props.name}
-                className={className}>
+                className={className}
+                onClick={this.props.onClick}>
                     {this.props.name}
             </div>
         );

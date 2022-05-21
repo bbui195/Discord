@@ -44,3 +44,8 @@ export const deleteServer = serverId => dispatch => {
     return ServerApiUtil.deleteServer(serverId)
         .then(() => dispatch(removeServer(serverId)));
 };
+
+export const updateServer = server => dispatch  => {
+    return ServerApiUtil.updateServer(server)
+        .then((server) => dispatch(receiveServer(server)));
+};

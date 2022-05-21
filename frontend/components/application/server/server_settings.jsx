@@ -1,5 +1,6 @@
 import React from "react";
 import { CSSTransition } from "react-transition-group";
+import ConfirmationModal from "./confirmation_modal";
 import SettingsIndexItem from "./settings_index_item";
 import SettingsUnsaved from "./settings_unsaved";
 
@@ -9,7 +10,8 @@ class ServerSettings extends React.Component {
         this.state = {
             selected: "Overview",
             name: this.props.server.name,
-            unsaved: false
+            unsaved: false,
+            deleteModal: false
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -18,6 +20,9 @@ class ServerSettings extends React.Component {
     }
 
     handleClick(e) {
+        if(e.target.innerHTML === "Delete Server") {
+            return;
+        }
         if(e.target.className === "settings-index-item") {
             this.setState({
                 selected: e.target.innerHTML
@@ -59,7 +64,8 @@ class ServerSettings extends React.Component {
     }
 
     saveSettings() {
-
+        let newServer = Object.assign({}, this.props.server, {name: this.state.name});
+        this.props.saveServer(newServer);
     }
 
     componentDidMount() {
@@ -70,9 +76,21 @@ class ServerSettings extends React.Component {
         document.removeEventListener("keydown", this.handleKeyDown);
     }
 
-render() {
+    render() {
         return (
             <div className="settings">
+                <ConfirmationModal
+                    title={(`Delete '${this.props.server.name}'`)}
+                    prompt={`Are you sure you want to delete ${this.props.server.name}? This action cannot be undone.`}
+                    confirmText="Delete Server"
+                    showing={this.state.deleteModal}
+                    cancel={()=>this.setState({deleteModal: false})}
+                    confirm={()=>
+                        this.props.deleteServer(this.props.server.id)
+                            .then(()=>this.props.history.push("/"))
+                    }
+                />
+
                 <div className="settings-left">
                     <div className="settings-index"
                         onClick={this.handleClick}
@@ -82,6 +100,10 @@ render() {
                         <SettingsIndexItem name="Roles" selected={this.state.selected}/>
                         <SettingsIndexItem name="Emoji" selected={this.state.selected}/>
                         <SettingsIndexItem name="Stickers" selected={this.state.selected}/>
+                        <SettingsIndexItem name="Delete Server"
+                            selected={this.state.selected}
+                            onClick={()=>this.setState({deleteModal: true})}
+                        />
                     </div>
                 </div>
                 <div className="settings-information">

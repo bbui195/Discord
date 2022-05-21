@@ -81,6 +81,9 @@ class ServerShow extends React.Component {
                             <ServerSettings
                                 server={this.props.server}
                                 toggleServerSettings={this.toggleServerSettings}
+                                saveServer={this.props.saveServer}
+                                deleteServer={this.props.deleteServer}
+                                history={this.props.history}
                             />
                         </CSSTransition>
                     </div>

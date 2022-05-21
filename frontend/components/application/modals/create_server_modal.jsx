@@ -8,20 +8,33 @@ class CreateServerModal extends React.Component {
             createOptions: true,
             tellMore: false,
             customize: false,
-            serverName: this.props.username + "'s server"
+            joinServer: false,
+            serverName: this.props.username + "'s server",
+            inviteLink: ""
         }
         this.tellMore = this.tellMore.bind(this);
         this.createOptions = this.createOptions.bind(this);
         this.customize = this.customize.bind(this);
+        this.joinServer = this.joinServer.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleCreate = this.handleCreate.bind(this);
+    }
+
+    joinServer() {
+        this.setState({
+            createOptions: false,
+            tellMore: false,
+            customize: false,
+            joinServer: true
+        });
     }
 
     createOptions() {
         this.setState({
             createOptions: true,
             tellMore: false,
-            customize: false
+            customize: false,
+            joinServer: false
         });
     }
 
@@ -29,7 +42,8 @@ class CreateServerModal extends React.Component {
         this.setState({
             createOptions: false,
             tellMore: true,
-            customize: false
+            customize: false,
+            joinServer: false
         });
     }
 
@@ -37,14 +51,21 @@ class CreateServerModal extends React.Component {
         this.setState({
             createOptions: false,
             tellMore: false,
-            customize: true
+            customize: true,
+            joinServer: false
         });
     }
 
-    handleChange(e) {
-        this.setState({
-            serverName: e.target.value
-        });
+    handleChange(type) {
+        return (e) =>
+            this.setState({
+                [type]: e.target.value
+            });
+    }
+
+    handleJoin(e) {
+        e.preventDefault();
+        
     }
 
     handleCreate(e) {
@@ -94,7 +115,9 @@ class CreateServerModal extends React.Component {
                                     ))}
                                 </div>
                                 <h2>Have an invite already?</h2>
-                                <div className="join-server">
+                                <div className="join-server"
+                                    onClick={this.joinServer}
+                                >
                                     Join a Server
                                 </div>
                             </div>
@@ -135,12 +158,37 @@ class CreateServerModal extends React.Component {
                                 <span className="cap-label">SERVER NAME</span>
                                 <form onSubmit={this.handleCreate}>
                                     <input type="text" id="server-name"
-                                        onChange={this.handleChange}
+                                        onChange={this.handleChange("serverName")}
                                         value={this.state.serverName}
                                         />
                                     <p className="agree">By creating a server, you agree to Discord's <span className="guidelines">Community Guidelines</span></p>
                                     <span className="back" onClick={this.tellMore}>Back</span>
                                     <button>Create</button>
+                                </form>
+                            </div>
+                        </CSSTransition>
+
+                        <CSSTransition
+                            in={this.state.joinServer}
+                            timeout={500}
+                            classNames={"add-server-page"}
+                            mountOnEnter
+                            unmountOnExit
+                        >
+                            <div className="customize-server">
+                                <div className="close-button" onClick={this.props.closeModals}>✕</div>
+                                <h1>Join a Server</h1>
+                                <p>Enter an invite below to join an existing server.</p>
+                                <span className="cap-label">INVITE LINK</span>
+                                <form onSubmit={this.handleJoin}>
+                                    <input type="text" id="server-name"
+                                        onChange={this.handleChange("inviteLink")}
+                                        value={this.state.inviteLink}
+                                        placeholder="hTKzmak"
+                                        />
+                                    <p></p>
+                                    <span className="back" onClick={this.createOptions}>Back</span>
+                                    <button>Join Server</button>
                                 </form>
                             </div>
                         </CSSTransition>

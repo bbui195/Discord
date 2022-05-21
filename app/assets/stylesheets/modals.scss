@@ -160,7 +160,7 @@ body {
     }
     
     h2 {
-        // font-weight: bold;
+        font-weight: bold;
         font-size: 20px;
         margin-bottom: 12px;
     }
@@ -290,3 +290,118 @@ div.customize-server {
     // position: absolute;
     // width: 10px;
 }
+
+
+
+.confirmation-modal-container {
+    position: fixed;
+    height: 400%;
+    width: 400%;
+    top: -150%;
+    left: -150%;
+    z-index: 10;
+    .dim {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: 0.85;
+    }
+    .confirmation-modal {
+        background-color: rgb(54, 57, 63);
+        display: flex;
+        flex-direction: column;
+        border-radius: 4px;
+        padding: 16px;
+        box-sizing: border-box;
+        width: 440px;
+        font-size: 14px;
+        // height: 292px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+        h1 {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 40px;
+        }
+        .confirm-options {
+            display: block;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            .cancel {
+                cursor: pointer;
+                padding: 8px 16px;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            .confirm-text {
+                cursor: pointer;
+                background-color: rgb(216, 60, 62);
+                border-radius: 4px;
+                padding: 8px 16px;
+                transition: all 0.2s;
+                &:hover {
+                    background-color: rgb(161, 45, 47);
+                }
+                &:active {
+                    background-color: rgb(140, 39, 41);
+                }
+            }
+        }
+    }
+    &.confirmation-enter {
+        transition: all 0.2s;
+        transform: scale(75%);
+        opacity: 0;
+    }
+
+    &.confirmation-enter-active {
+        transform: scale(100%);
+        opacity: 1;
+    }
+
+    &.confirmation-exit {
+        transition: all 0.2s;
+        transform: scale(100%);
+        opacity: 1;
+    }
+
+    &.confirmation-exit-active {
+        transform: scale(75%);
+        opacity: 0;
+    }
+}
+
+
+
+// <CSSTransition
+//     in={this.props.showing}
+//     timeout={300}
+//     classNames={"confirmation"}
+//     mountOnEnter
+//     unmountOnExit
+// >
+//     <div className="confirmation-modal-container">
+//         <div className="dim"
+//             onClick={this.props.cancel}></div>
+//         <div className="confirmation-modal">
+//             <h1>{this.props.title}</h1>
+//             <p>{this.props.prompt}</p>
+//             <div className="confirm-options">
+//                 <div className="cancel"
+//                     onClick={this.props.cancel}
+//                 >Cancel</div>
+//                 <div className="confirm-text"
+//                     onClick={this.props.confirm}
+//                 >{this.props.confirmText}</div>
+//             </div>
+//         </div>
+//     </div>
+// </CSSTransition>
