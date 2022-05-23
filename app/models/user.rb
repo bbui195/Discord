@@ -50,7 +50,8 @@ class User < ApplicationRecord
     has_many :user_servers,
         primary_key: :id,
         foreign_key: :user_id,
-        class_name: :UserServer
+        class_name: :UserServer,
+        dependent: :destroy
 
     has_many :servers,
         through: :user_servers,

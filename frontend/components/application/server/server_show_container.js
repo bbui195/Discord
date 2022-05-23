@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { deleteServer, fetchServer, updateServer } from "../../../actions/server_actions";
+import { deleteServer, fetchServer, leaveServer, updateServer } from "../../../actions/server_actions";
 import ServerShow from "./server_show";
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         fetchServer: () => dispatch(fetchServer(ownProps.match.params.serverId)),
         saveServer: (server) => dispatch(updateServer(server)),
-        deleteServer: (serverId) => dispatch(deleteServer(serverId))
+        deleteServer: (serverId) => dispatch(deleteServer(serverId)),
+        leaveServer: () => dispatch(leaveServer(ownProps.match.params.serverId))
     };
 };
 

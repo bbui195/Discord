@@ -1,18 +1,37 @@
-
+body {
+    // height: 100vh;
+    overflow: hidden;
+}
 #app-container {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
-    position: absolute;
+    // position: absolute;
+    position: relative;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     #server-index {
+        // box-sizing: border-box;
+        // overflow-y: visible;
+        // overflow-x: visible;
+        // overflow: none;
+        // scrollbar-width: none;
+        &::-webkit-scrollbar {
+            // display: none;
+        }
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: #202225;
         width: 72px;
+        height: auto;
+        line-height: 48px;
+        .index-item.home {
+            color: rgb(220, 221, 222);
+            text-align: center;
+            font-size: 24px;
+        }
         .index-item.server {
-            line-height: 48px;
             color: rgb(220, 221, 222);
             text-decoration: none;
             text-align: center;
@@ -97,9 +116,9 @@
         #server-join {
             color: rgb(59, 165, 93);
             text-align: center;
-            line-height: 42px;
             user-select: none;
-            font-size: 30px;
+            font-size: 24px;
+            
             cursor: pointer;
         }
         #server-join:before {
@@ -107,6 +126,9 @@
         }
         #server-join:hover:after {
             content: "Add a Server";
+        }
+        #server-join.public:hover:after {
+            content: "Explore Public Servers";
         }
         #server-join:hover {
             color: white;

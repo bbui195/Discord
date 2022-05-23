@@ -52,7 +52,7 @@ class ServerShow extends React.Component {
                         onClick={this.toggleOptions}
                     >
                         {this.props.server.name}
-                        <span>{this.state.options? "X" : "V"}</span>
+                        <span>{this.state.options? <i className="fa-solid fa-xmark"/> : <i className="fa-solid fa-angle-down"/>}</span>
                         <CSSTransition
                             in={this.state.options}
                             timeout={200}
@@ -64,11 +64,16 @@ class ServerShow extends React.Component {
                                 {this.props.owner? 
                                     <>
                                     <div className="dropdown-button"
-                                        onClick={this.toggleServerSettings}>Server Settings</div>
-                                    <div className="dropdown-button">Create Channel</div>
+                                        onClick={this.toggleServerSettings}>Server Settings<i className="fa-solid fa-gear"/></div>
+                                    <div className="dropdown-button">Create Channel<i className="fa-solid fa-circle-plus"/></div>
                                     </>
                                 : null }
-                                <div className="dropdown-button">Leave Server</div>
+                                <div className="dropdown-button leave"
+                                    onClick={
+                                        ()=> this.props.leaveServer()
+                                            .then(() => this.props.history.push("/"))
+                                    }
+                                    >Leave Server <i className="fa-solid fa-arrow-right-from-bracket"/></div>
                             </div>
                         </CSSTransition>
                         <CSSTransition

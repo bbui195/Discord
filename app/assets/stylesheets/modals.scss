@@ -182,6 +182,7 @@ body {
     }
 }
 
+
 #add-server {
     .create-option {
         position: relative;
@@ -196,13 +197,51 @@ body {
         line-height: 64px;
         padding-left: 64px;
         border-radius: 8px;
+        &.public-index {
+            background-color: rgb(242, 243, 245);
+            font-size: 18px;
+            line-height: 22px;
+            // margin-top: 12px;
+            padding-top: 24px;
+            &:hover {
+                background-color: rgba(106, 116, 128, 0.16);
+            }
+            &:active {
+                background-color: rgba(106, 116, 128, 0.2);
+            }
+            p {
+                font-weight: normal;
+                font-size: 12px;
+                margin: 0;
+            }
+            i {
+                display: block;
+                position: absolute;
+                background-color: rgb(59, 165, 93);
+                color: white;
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                text-align: center;
+                line-height: 40px;
+                font-size: 22px;
+                left: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &:after {
+                right: 24px;
+            }
+        }
     }
     .create-option:after {
-        content: ">";
+        font-family: "Font Awesome 6 Free";
+        content: "\f105";
         display: block;
         position: absolute;
         right: 16px;
-        top: 0;
+        top: 50%;
+        transform: translateY(-50%);
         color: gray;
     }
     .create-option:hover {
@@ -311,7 +350,7 @@ div.customize-server {
         display: flex;
         flex-direction: column;
         border-radius: 4px;
-        padding: 16px;
+        // padding: 16px;
         box-sizing: border-box;
         width: 440px;
         font-size: 14px;
@@ -321,9 +360,14 @@ div.customize-server {
         left: 50%;
         transform-origin: center;
         transform: translate(-50%, -50%);
+        div {
+            padding: 16px;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
         h1 {
             font-weight: bold;
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 10px;
         }
         p {
@@ -334,6 +378,7 @@ div.customize-server {
             width: 100%;
             display: flex;
             justify-content: flex-end;
+            background-color: rgb(47, 49, 54);
             .cancel {
                 cursor: pointer;
                 padding: 8px 16px;
@@ -377,6 +422,15 @@ div.customize-server {
         transform: scale(75%);
         opacity: 0;
     }
+}
+
+.options-container {
+    width: calc(100% + 14px);
+    overflow-y: scroll;
+    // height: 322px;
+    height: 200px;
+    margin-bottom: 28px;
+    position: relative;
 }
 
 

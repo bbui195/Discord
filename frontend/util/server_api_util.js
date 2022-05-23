@@ -40,3 +40,24 @@ export const deleteServer = (serverId) => {
     });
 };
 
+export const getPublicServers = () => {
+    return $.ajax({
+        url: `api/servers/browse/all`,
+        method: "GET"
+    });
+}
+
+export const joinServer = (serverId) => {
+    return $.ajax({
+        url: `api/servers/join/${serverId}`,
+        method: "POST"
+    });
+};
+
+export const leaveServer = (serverId) => {
+    return $.ajax({
+        url: `api/servers/leave/${serverId}`,
+        method: "DELETE"
+    });
+};
+

@@ -31,11 +31,35 @@ class Api::ServersController < ApplicationController
 
     def destroy
         @server = Server.find_by(id: params[:id])
-        if @server && @server.owner_id == current_user.id
-        
+        if @server && @server.owner_id == current_user.id && @server.destroy
+            render :show
         else
             render json: "Error deleting server", status: 401
         end
+    end
+
+    def join
+        @server = Server.find_by(id: params[:id])
+        if UserServer.create(user_id: current_user.id, server_id: @server.id)
+            render :show
+        else
+            render json: "Error joining server", status: 422
+        end
+    end
+
+    def leave
+        user_server = UserServer.find_by(server_id: params[:id], user_id: current_user.id)
+        if user_server && user_server.destroy
+            render json: {msg: "left"}
+        else
+            render json: "Error leaving server", status: 401
+        end
+    end
+
+    def browse
+        servers_in = current_user.servers.pluck(:id)
+        @servers = Server.where.not(id: servers_in)
+        render :browse
     end
 
     private
@@ -43,3 +67,9 @@ class Api::ServersController < ApplicationController
         params.require(:server).permit(:name)
     end
 end
+
+
+# Server.left_outer_joins(:users).where("user_id IS NULL")
+# Server.where.not(id: [User.first.servers.pluck(:id)])
+
+# Server.where.not(id: User.first.servers.pluck(:id))

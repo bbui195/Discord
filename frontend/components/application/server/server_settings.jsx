@@ -109,7 +109,7 @@ class ServerSettings extends React.Component {
                 <div className="settings-information">
                     <div className="information-container">
                         <h1>{this.state.selected}</h1>
-                        <div className="close-button" onClick={this.props.toggleServerSettings}>x</div>
+                        <div className="close-button" onClick={this.props.toggleServerSettings}><i className="fa-solid fa-x"/></div>
                         {this.state.selected === "Overview"? 
                             <>
                                 <div className="text-label">SERVER NAME</div>

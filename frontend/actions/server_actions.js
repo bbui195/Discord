@@ -3,6 +3,7 @@ import * as ServerApiUtil from "../util/server_api_util";
 export const RECEIVE_SERVER = "RECEIVE_SERVER";
 export const RECEIVE_SERVERS = "RECEIVE_SERVERS";
 export const REMOVE_SERVER = "REMOVE_SERVER";
+export const RECEIVE_PUBLIC_SERVERS = "RECEIVE_PUBLIC_SERVERS";
 
 const receiveServer = server => {
     return {
@@ -25,12 +26,19 @@ const removeServer = serverId => {
     }
 }
 
+const receivePublicServers = servers => {
+    return {
+        type: RECEIVE_PUBLIC_SERVERS,
+        servers
+    }
+};
+
 export const createServer = server => dispatch => {
     return ServerApiUtil.createServer(server)
         .then(server => dispatch(receiveServer(server)));
 };
 
-export const fetchServers = () => dispatch => {
+export const fetchServers = () => dispatch => { //servers user is in
     return ServerApiUtil.getServers()
         .then(servers => dispatch(receiveServers(servers)));
 };
@@ -45,7 +53,22 @@ export const deleteServer = serverId => dispatch => {
         .then(() => dispatch(removeServer(serverId)));
 };
 
+export const fetchPublicServers = () => dispatch => { //servers users is not in
+    return ServerApiUtil.getPublicServers()
+        .then((servers) => dispatch(receivePublicServers(servers)));
+};
+
 export const updateServer = server => dispatch  => {
     return ServerApiUtil.updateServer(server)
         .then((server) => dispatch(receiveServer(server)));
+};
+
+export const joinServer = serverId => dispatch => {
+    return ServerApiUtil.joinServer(serverId)
+        .then((server) => dispatch(receiveServer(server)));
+};
+
+export const leaveServer = serverId => dispatch => {
+    return ServerApiUtil.leaveServer(serverId)
+        .then(() => dispatch(removeServer(serverId)));
 };

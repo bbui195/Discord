@@ -37,6 +37,7 @@
     background-color: rgb(24, 25, 28);
     transform-origin: top;
     .dropdown-button {
+        position: relative;
         color: rgb(174, 176, 179);
         padding: 6px 8px 6px 8px;
         width: calc(100% - 16px);
@@ -44,13 +45,30 @@
         line-height: 20px;
         font-size: 14px;
         border-radius: 2px;
+        i {
+            // font-size: 26px;
+            display: block;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &.leave {
+            color: rgb(237, 66, 69);
+        }
     }
     .dropdown-button:hover {
         background-color: rgb(71, 82, 196);
         color: white;
+        &.leave {
+            background-color: rgb(237, 66, 69);
+        }
     }
     .dropdown-button:active {
         background-color: rgb(60, 69, 165);
+        &.leave {
+            background-color: rgb(161, 45, 47);
+        }
     }
 }
 
