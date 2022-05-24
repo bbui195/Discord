@@ -1,5 +1,5 @@
 .channel-index {
-
+    user-select: none;
     .channel-index-item {
         display: block;
         box-sizing: border-box;
@@ -40,4 +40,86 @@
         //     font-weight: bold;
         // }
     }
+}
+
+.channel {
+    .channel-top-bar {
+        user-select: none;
+        box-sizing: border-box;
+        height: 48px;
+        background-color: rgb(54, 57, 63);
+        line-height: 24px;
+        padding: 12px 16px 12px 16px;
+        border-bottom: 1px solid rgb(35, 37, 39);
+        box-shadow: 0 3px 5px -5px rgb(35, 37, 39);
+    }
+    .channel-content {
+        display: flex;
+        // justify-content: space-between;
+        // border: 1px solid white;
+        box-sizing: border-box;
+        height: calc(100vh - 48px);
+        .channel-users-index {
+            // box-sizing: border-box;
+            background-color: rgb(47, 49, 54);
+            flex-shrink: 0;
+            display: block;
+            width: 240px;
+            height: 100%;
+            // border: 1px solid green;
+        }
+    }
+}
+
+.message-index {
+    width: calc(100% - 240px);
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .messages {
+        display: block;
+        box-sizing: border-box;
+        height: calc(100vh - 48px - 44px - 48px);
+        // border: 1px solid green;
+        overflow-y: scroll;
+        padding: 0px 0px 0px 16px;
+    }   
+    .message-input {
+        box-sizing: border-box;
+        font-size: 16px;
+        margin: 24px 16px;
+        flex-shrink: 0;
+        height: 44px;
+        background-color: rgb(64, 68, 75);
+        color: rgb(219, 220, 221);
+        border: none;
+        width: calc(100% - 32px);
+        border-radius: 6px;
+        padding: 4px 16px;
+        &::placeholder {
+            color: rgb(113, 117, 124);
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    // background-color: transparent;
+    width: 16px;
+    // padding: 10px;
+    // outline: 1px solid black;
+    // scrollbar-color: white;
+    
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(46, 51, 56);
+    // box-shadow: inset 0 0 2px 2px red;
+    // width: 80%;
+    border: 4px solid rgb(54, 57, 63);
+    border-radius: 10px;
 }

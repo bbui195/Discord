@@ -3,15 +3,16 @@ import { withRouter } from "react-router-dom";
 import ChannelShow from "./channel_show";
 
 const mapStateToProps = (state, ownProps) => {
+    console.log(ownProps);
     return {
-        channel: {id: 1},
+        channel: state.entities.channels[ownProps.match.params.channelId],
         messages: []
     };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        getMessages: () => 0
+        getMessages: () => () => 0
     };
 };
 

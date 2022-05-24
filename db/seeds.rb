@@ -29,7 +29,7 @@ UserServer.create(server_id: as.id, user_id: a.id)
 UserServer.create(server_id: as.id, user_id: demo.id)
 
 as2 = Server.create(name: "a's 2server", owner_id: a.id)
-UserServer.create(server_id: as2.id, user_id, a.id)
+UserServer.create(server_id: as2.id, user_id: a.id)
 
 dsg = Channel.create(name: "general", server_id: ds.id)
 dsg2 = Channel.create(name: "general2", server_id: ds.id)

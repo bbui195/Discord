@@ -1,6 +1,7 @@
 import React from "react";
 import { CSSTransition } from "react-transition-group";
 import ChannelIndexContainer from "../channel/channel_index_container";
+import ChannelShowContainer from "../channel/channel_show_container";
 import CreateChannelModal from "./create_channel_modal";
 import ServerSettings from "./server_settings";
 
@@ -107,7 +108,7 @@ class ServerShow extends React.Component {
                 </div>
 
                 <div className="main-show">
-                    
+                    <ChannelShowContainer />
                 </div>
 
                 <CreateChannelModal 

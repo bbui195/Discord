@@ -1,4 +1,6 @@
 import React from "react";
+import MessageIndex from "../message/message_index";
+import ChannelUsersIndex from "./channel_users_index";
 
 
 class ChannelShow extends React.Component {
@@ -14,6 +16,7 @@ class ChannelShow extends React.Component {
     }
 
     componentDidUpdate() {
+        return;
         if(!this.props.channel) {
             return;
         }
@@ -31,12 +34,19 @@ class ChannelShow extends React.Component {
     }
 
     render() {
-        if(!this.props.messages) {
+        if(!this.props.messages || !this.props.channel) {
             return;
         }
         return (
-            <div>
-                
+            <div className="channel">
+                <div className="channel-top-bar">
+                    # {this.props.channel.name}
+                </div>
+                <div className="channel-content">
+                    <MessageIndex messages={["m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2"]}
+                        channel={this.props.channel}/>
+                    <ChannelUsersIndex />
+                </div>
             </div>
         );
     }

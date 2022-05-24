@@ -31,6 +31,7 @@ class Spicord extends React.Component{
                 </Switch>
 
                 <Switch>
+                    <Route path="/servers/:serverId/channels/:channelId" component={ServerShowContainer} />
                     <Route path="/servers/:serverId" component={ServerShowContainer} />
                     {/* <Route path="/servers/:serverId" render={()=><div>testing123</div>} /> */}
                     <Route path="/" component={HomeContainer} />
