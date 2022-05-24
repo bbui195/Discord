@@ -333,6 +333,7 @@ div.customize-server {
 
 
 .confirmation-modal-container {
+    user-select: none;
     position: fixed;
     height: 400%;
     width: 400%;
@@ -373,11 +374,47 @@ div.customize-server {
         p {
             margin-bottom: 40px;
         }
+        .label {
+            color: rgb(220, 221, 222);
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 10px;
+            line-height: 12px;
+            font-weight: bold;
+            padding-left: 0;
+            padding-bottom: 0;
+        }
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            &:before {
+                z-index: 10;
+                content: "#";
+                font-size: 18px;
+                position: absolute;
+                left: 10px;
+                // left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                font-style: italic;
+            }
+        }
+        input {
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            padding-left: 24px;
+        }
         .confirm-options {
             display: block;
             width: 100%;
+            height: 72px;
+            line-height: 24px;
             display: flex;
             justify-content: flex-end;
+            // align-items: center;
             background-color: rgb(47, 49, 54);
             .cancel {
                 cursor: pointer;
@@ -388,6 +425,7 @@ div.customize-server {
             }
             .confirm-text {
                 cursor: pointer;
+                height: 100%;
                 background-color: rgb(216, 60, 62);
                 border-radius: 4px;
                 padding: 8px 16px;
@@ -397,6 +435,15 @@ div.customize-server {
                 }
                 &:active {
                     background-color: rgb(140, 39, 41);
+                }
+                &.purple{
+                    background-color: rgb(88, 101, 242);
+                    &:hover {
+                        background-color: rgb(71, 82, 196);
+                    }
+                    &:active {
+                        background-color: rgb(60, 69, 165);
+                    }
                 }
             }
         }

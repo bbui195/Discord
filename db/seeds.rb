@@ -9,6 +9,9 @@
 UserServer.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('user_servers')
 
+Channel.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('channels')
+
 Server.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('servers')
 
@@ -24,3 +27,12 @@ UserServer.create(server_id: ds.id, user_id: demo.id)
 as = Server.create(name: "a's server", owner_id: a.id)
 UserServer.create(server_id: as.id, user_id: a.id)
 UserServer.create(server_id: as.id, user_id: demo.id)
+
+as2 = Server.create(name: "a's 2server", owner_id: a.id)
+UserServer.create(server_id: as2.id, user_id, a.id)
+
+dsg = Channel.create(name: "general", server_id: ds.id)
+dsg2 = Channel.create(name: "general2", server_id: ds.id)
+
+asg = Channel.create(name: "ageneral", server_id: as.id)
+as2g = Channel.create(name: "a2general", server_id: as2.id)

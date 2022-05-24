@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post "/servers/join/:id", to: "servers#join"
     delete "/servers/leave/:id", to: "servers#leave"
     get "/servers/browse/all", to: "servers#browse"
+    resources :channels, only: [:create, :show, :update, :destroy]
     resource :session, only: [:create, :destroy]
   end
 end

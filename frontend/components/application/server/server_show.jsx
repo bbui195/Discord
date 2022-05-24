@@ -1,5 +1,7 @@
 import React from "react";
 import { CSSTransition } from "react-transition-group";
+import ChannelIndexContainer from "../channel/channel_index_container";
+import CreateChannelModal from "./create_channel_modal";
 import ServerSettings from "./server_settings";
 
 class ServerShow extends React.Component {
@@ -7,10 +9,12 @@ class ServerShow extends React.Component {
         super(props);
         this.state = {
             options: false,
-            settings: false
+            settings: false,
+            createChannel: false
         };
         this.toggleOptions = this.toggleOptions.bind(this);
         this.toggleServerSettings = this.toggleServerSettings.bind(this);
+        this.toggleCreateChannel = this.toggleCreateChannel.bind(this);
     }
 
     toggleOptions(e) {
@@ -40,6 +44,10 @@ class ServerShow extends React.Component {
         this.setState({settings: !this.state.settings})
     }
 
+    toggleCreateChannel() {
+        this.setState({createChannel: !this.state.createChannel})
+    }
+
     render() {
         if(!this.props.server) {
             return;
@@ -65,7 +73,9 @@ class ServerShow extends React.Component {
                                     <>
                                     <div className="dropdown-button"
                                         onClick={this.toggleServerSettings}>Server Settings<i className="fa-solid fa-gear"/></div>
-                                    <div className="dropdown-button">Create Channel<i className="fa-solid fa-circle-plus"/></div>
+                                    <div className="dropdown-button"
+                                        onClick={this.toggleCreateChannel}
+                                        >Create Channel<i className="fa-solid fa-circle-plus"/></div>
                                     </>
                                 : null }
                                 <div className="dropdown-button leave"
@@ -92,12 +102,22 @@ class ServerShow extends React.Component {
                             />
                         </CSSTransition>
                     </div>
-                    
+                    {/* channel index here  */}
+                    <ChannelIndexContainer />
                 </div>
 
                 <div className="main-show">
-
+                    
                 </div>
+
+                <CreateChannelModal 
+                    showing={this.state.createChannel}
+                    cancel={this.toggleCreateChannel}
+                    confirm={()=>
+                        console.log("making channel")
+                        // this.toggleCreateChannel()
+                    }
+                />
             </div>
         );
     }

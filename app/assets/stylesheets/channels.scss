@@ -1,0 +1,43 @@
+.channel-index {
+
+    .channel-index-item {
+        display: block;
+        box-sizing: border-box;
+        background-size: 50% 50%;
+        height: 34px;
+        line-height: 34px;
+        margin: 0px 8px;
+        * {
+            color: rgb(150, 152, 157);
+            text-decoration: none;
+        }
+        a {
+            padding: 0px 8px;
+            display: block;
+        }
+        // border: 1px solid white;
+        border-radius: 4px;
+        &:hover {
+            * {
+                color: rgb(215, 217, 218);
+            }
+            background-color: rgb(60, 63, 69);
+        }
+        &:active {
+            background-color: rgb(63, 66, 72);
+        }
+
+        a.active {
+            background-color: rgb(67, 71, 77);
+            color: white;
+        }
+        // &::first-letter {
+        //     font-weight: bold;
+        // }
+        // &:before {
+        //     content: "#  ";
+        //     display: block;
+        //     font-weight: bold;
+        // }
+    }
+}
