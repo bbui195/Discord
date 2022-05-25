@@ -20,8 +20,7 @@ class Api::ChannelsController < ApplicationController
 
     def update
         @channel = Channel.find_by(params[:id])
-        if @channel && @channel.server.owner_id == current_user
-            && @channel.update(name: channel_params[:name])
+        if @channel && @channel.server.owner_id == current_user && @channel.update(name: channel_params[:name])
             render :show
         else
             render json: "Error updating channel", status: 403
@@ -30,8 +29,7 @@ class Api::ChannelsController < ApplicationController
 
     def destroy
         @channel = Channel.find_by(params[:id])
-        if @channel && @channel.server.owner_id == current_user
-            && @channel.destroy
+        if @channel && @channel.server.owner_id == current_user && @channel.destroy
             render json: {msg: "Destroyed"}
         else
             render json: "Error destroying server", status: 403

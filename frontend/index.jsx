@@ -2,8 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Root from "./components/root";
 import configureStore from "./store/store";
+import { createConsumer } from "@rails/actioncable";
 
 document.addEventListener("DOMContentLoaded", () => {
+    const cable = createConsumer('ws://localhost:3000/cable')
+
     const root = document.getElementById("root");
     let preloadedState = undefined;
     if(window.currentUser) {
@@ -16,5 +19,5 @@ document.addEventListener("DOMContentLoaded", () => {
         delete window.currentUser;
     }
     const store = configureStore(preloadedState);
-    ReactDOM.render(<Root store={store} />, root);
+    ReactDOM.render(<Root store={store} cable={cable}/>, root);
 });

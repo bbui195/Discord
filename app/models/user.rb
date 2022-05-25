@@ -56,4 +56,11 @@ class User < ApplicationRecord
     has_many :servers,
         through: :user_servers,
         source: :server
+
+    has_many :messages,
+        as: :messageable
+
+    def messages_with(user)
+        user.messages.where(sender_id: self.id) + self.messages.where(sender_id: user.id)
+    end
 end

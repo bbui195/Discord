@@ -28,6 +28,7 @@
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
+    "@rails/actioncable": "^6.0.5",
     "babel-loader": "^8.2.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
