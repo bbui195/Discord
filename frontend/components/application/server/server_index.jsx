@@ -15,8 +15,6 @@ class ServerIndex extends React.Component {
     }
 
     handleWheel(e) {
-        // console.log(e);
-        // console.log(e.deltaY);
         this.serverIndex ||= document.getElementById("server-index");
         this.setState({
             scrollPos: this.state.scrollPos - e.deltaY

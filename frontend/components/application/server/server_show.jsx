@@ -119,7 +119,6 @@ class ServerShow extends React.Component {
                     showing={this.state.createChannel}
                     cancel={this.toggleCreateChannel}
                     confirm={()=>
-                        console.log("making channel")
                         // this.toggleCreateChannel()
                     }
                 />
