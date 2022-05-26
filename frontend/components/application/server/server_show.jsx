@@ -108,7 +108,11 @@ class ServerShow extends React.Component {
                 </div>
 
                 <div className="main-show">
-                    <ChannelShowContainer />
+                    <ChannelShowContainer 
+                        cable={this.props.cable}
+                        owner={this.props.owner}
+                        currentUserId={this.props.currentUserId}
+                    />
                 </div>
 
                 <CreateChannelModal 

@@ -22,4 +22,8 @@ class Channel < ApplicationRecord
 
     has_many :messages,
         as: :messageable
+
+    has_one :owner,
+        through: :server,
+        source: :owner
 end

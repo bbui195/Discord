@@ -47,6 +47,12 @@ Message.create(body: "fourth message", messageable_id: a.id, messageable_type: "
 Message.create(body: "fifth message", messageable_id: a.id, messageable_type: "User", sender_id: demo.id)
 Message.create(body: "sixth message", messageable_id: demo.id, messageable_type: "User", sender_id: a.id)
 Message.create(body: "seventh message", messageable_id: demo.id, messageable_type: "User", sender_id: a.id)
+Message.create(body: "message in general2", messageable_id: dsg2.id, messageable_type: "Channel", sender_id: demo.id)
+Message.create(body: "another message in general2", messageable_id: dsg2.id, messageable_type: "Channel", sender_id: demo.id)
+
+Message.create(body: "welcome to my server!", messageable_id: asg.id, messageable_type: "Channel", sender_id: a.id)
+Message.create(body: "hi a", messageable_id: asg.id, messageable_type: "Channel", sender_id: demo.id)
+
 #  id               :bigint           not null, primary key
 #  body             :text             not null
 #  messageable_id   :integer          not null

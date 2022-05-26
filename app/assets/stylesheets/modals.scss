@@ -114,6 +114,10 @@ body {
         margin-bottom: 8px;
     }
 
+    input {
+        user-select: auto;
+    }
+
     .skip {
         cursor: pointer;
         display: inline;
@@ -361,17 +365,17 @@ div.customize-server {
         left: 50%;
         transform-origin: center;
         transform: translate(-50%, -50%);
-        div {
+        .round {
             padding: 16px;
             box-sizing: border-box;
             border-radius: 4px;
         }
-        h1 {
+        .header {
             font-weight: bold;
             font-size: 20px;
             margin-bottom: 10px;
         }
-        p {
+        .question {
             margin-bottom: 40px;
         }
         .label {

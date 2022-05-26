@@ -6,16 +6,17 @@ class Api::MessagesController < ApplicationController
         render :show
     end
 
-    def broadcast(empty)
+    def broadcast(body)
         type = @message.messageable_type
         model = type.constantize
         @messageable = model.find_by(id: @message.messageable_id)
         message = {
             id: @message.id,
-            body: empty || @message.body,
-            sender_id: @message.sender_id,
-            messageable_type: @message.messageable_type,
-            messageable_id: @message.messageable_id
+            body: body,
+            senderId: @message.sender_id,
+            type: @message.messageable_type,
+            typeId: @message.messageable_id,
+            time: @message.created_at
         }
         #broadcast message to messageable and sender
         ((type + "sChannel").constantize).broadcast_to(@messageable, message)
@@ -26,7 +27,8 @@ class Api::MessagesController < ApplicationController
         @message = Message.new(message_params)
         @message.sender_id = current_user.id
         if @message.save
-            broadcast
+            broadcast(@message.body)
+            render json: {}
         else
             render json: @message.errors.full_messages, status: 422
         end
@@ -34,9 +36,10 @@ class Api::MessagesController < ApplicationController
 
     def update
         @message = Message.find_by(id: params[:id])
-        if @message && @message.sender_id == current_user.id
+        if @message && @message.sender_id == current_user.id \
             && @message.update(body: message_params[:body])
-            broadcast
+            broadcast(@message.body)
+            render json: {}
         else
             render json: "Error updating message", status: 403
         end
@@ -44,9 +47,11 @@ class Api::MessagesController < ApplicationController
 
     def destroy
         @message = Message.find_by(id: params[:id])
-        if @message && @message.sender_id == current_user.id && @message.destroy
+        if @message && (@message.sender_id == current_user.id \
+            || @message.moderator_id == current_user.id) && @message.destroy
             #broadcast message deletion
             broadcast("")
+            render json: {}
         else
             render json: "Error deleting message", status: 422
         end

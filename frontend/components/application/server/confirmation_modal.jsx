@@ -19,15 +19,16 @@ class ConfirmationModal extends React.Component {
                 <div className="dim"
                     onClick={this.props.cancel}></div>
                 <div className="confirmation-modal">
-                    <div>
-                        <h1>{this.props.title}</h1>
-                        <p>{this.props.prompt}</p>
+                    <div className="round">
+                        <h1 className="header">{this.props.title}</h1>
+                        <p className="question">{this.props.prompt}</p>
+                        {this.props.render ? this.props.render() : null}
                     </div>
-                    <div className="confirm-options">
-                        <div className="cancel"
+                    <div className="confirm-options round">
+                        <div className="cancel round"
                             onClick={this.props.cancel}
                         >Cancel</div>
-                        <div className="confirm-text"
+                        <div className="confirm-text round"
                             onClick={this.props.confirm}
                         >{this.props.confirmText}</div>
                     </div>

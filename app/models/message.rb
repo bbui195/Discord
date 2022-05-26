@@ -22,4 +22,9 @@ class Message < ApplicationRecord
     belongs_to :messageable,
         polymorphic: true
     
+    def moderator_id
+        if self.messageable_type == "Channel"
+            Channel.find_by(id: self.messageable_id).owner.id
+        end
+    end
 end

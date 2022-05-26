@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { deleteServer, fetchServer, leaveServer, updateServer } from "../../../actions/server_actions";
 import ServerShow from "./server_show";
 
@@ -10,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
     }
     return {
         server: state.entities.servers[ownProps.match.params.serverId],
-        owner: owner
+        owner: owner,
+        currentUserId: state.session.id
     };
 };
 
@@ -23,4 +25,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ServerShow);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ServerShow));

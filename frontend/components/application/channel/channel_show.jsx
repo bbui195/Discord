@@ -10,26 +10,37 @@ class ChannelShow extends React.Component {
             
         };
     }
+    
+    updateChannel() {
+        this.props.fetchChannel();
+        if(this.state.room) {
+            this.props.cable.subscriptions.remove(this.state.room);
+        }
+        this.setState(
+            {
+                channelId: this.props.channel.id,
+                room: this.props.cable.subscriptions.create({
+                    channel: "ChannelsChannel",
+                    channel_id: this.props.channel.id
+                }, {
+                    received: this.props.receiveMessage
+                })
+            }
+        );
+    }
 
     componentDidMount() {
-        this.props.getMessages();
+        if(this.props.channel !== undefined) {
+            this.updateChannel();
+        }
     }
 
     componentDidUpdate() {
-        return;
-        if(!this.props.channel) {
+        if(!this.props.channel || this.props.channel === undefined) {
             return;
         }
         if(this.state.channelId !== this.props.channel.id) {
-            this.props.getMessages()
-                .then(()=> {
-                    this.setState(
-                        {
-                            channelId: this.props.channel.id
-                        }
-                    )
-                }
-            );
+            this.updateChannel();
         }
     }
 
@@ -43,8 +54,15 @@ class ChannelShow extends React.Component {
                     # {this.props.channel.name}
                 </div>
                 <div className="channel-content">
-                    <MessageIndex messages={["m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2","m1", "m2"]}
-                        channel={this.props.channel}/>
+                    <MessageIndex
+                        // messages={this.props.messages}
+                        // channel={this.props.channel}
+                        {...this.props}
+                        messageable={{
+                            type: "Channel",
+                            id: this.props.channel.id
+                        }}
+                        />
                     <ChannelUsersIndex />
                 </div>
             </div>

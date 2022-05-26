@@ -8,12 +8,12 @@ import LoginFormContainer from "./auth/login_form_container";
 import SignupFormContainer from "./auth/sign_up_form_container";
 import Splash from "./splash";
 
-const App = () => {
+const App = ({ cable }) => {
     return <div>
         <Switch>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <Route path="/" component={SpicordContainer}/>
+            <Route path="/" render={()=> <SpicordContainer cable={cable}/>}/>
             <Redirect to="/" />
         </Switch>
     </div>
