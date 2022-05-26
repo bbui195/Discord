@@ -6,7 +6,7 @@ import { createConsumer } from "@rails/actioncable";
 
 document.addEventListener("DOMContentLoaded", () => {
     // const cable = createConsumer('ws://localhost:3000/cable')
-    const cable = createConsumer('wss://spicord.herokuapp.com');
+    const cable = createConsumer('wss://spicord.herokuapp.com/cable');
 
     const root = document.getElementById("root");
     let preloadedState = undefined;
