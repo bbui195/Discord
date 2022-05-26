@@ -178,24 +178,26 @@ class MessageIndex extends React.Component {
                                                 >save</span></div>
                                         </>
                                         : <div className="body">{message.body}</div>}
-                                    <div className="edit-options">
-                                        {message.senderId === this.props.currentUserId ? 
-                                        <div className="edit" name="Edit"
-                                            onClick={this.handleEditClick(message)}
-                                        >
-                                            <i className="fa-solid fa-pencil"></i></div>
-                                        : null}
-                                        {this.props.owner || message.senderId === this.props.currentUserId ? 
-                                        <div className="delete" name="Delete"
-                                            onClick={()=>{
-                                                this.setState({
-                                                    deleteModal: true,
-                                                    deleteMessage: message
-                                                });
-                                            }}
+                                    {this.props.owner || message.senderId === this.props.currentUserId ?
+                                        <div className="edit-options">
+                                            {message.senderId === this.props.currentUserId ?
+                                                <div className="edit" name="Edit"
+                                                    onClick={this.handleEditClick(message)}
+                                                >
+                                                    <i className="fa-solid fa-pencil"></i>
+                                                </div>
+                                            : null}
+                                            <div className="delete" name="Delete"
+                                                onClick={()=>{
+                                                    this.setState({
+                                                        deleteModal: true,
+                                                        deleteMessage: message
+                                                    });
+                                                }}
                                             ><i className="fa-solid fa-trash-can"></i></div>
-                                        : null}
-                                    </div>
+                                            
+                                        </div> : null
+                                    }
                                 </div>
                             })}
                         </div>
