@@ -14,6 +14,8 @@ class Api::ServersController < ApplicationController
         if @server.save 
             #make user join server
             join = UserServer.create(user_id: current_user.id, server_id: @server.id)
+            #make a general channel
+            channel = Channel.create(name: "general", server_id: @server.id)
             render :show
         else
             render json: @server.errors.full_messages, status: 422
