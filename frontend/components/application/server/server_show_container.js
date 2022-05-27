@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { createChannel } from "../../../actions/channel_actions";
 import { deleteServer, fetchServer, leaveServer, updateServer } from "../../../actions/server_actions";
 import ServerShow from "./server_show";
 
@@ -21,7 +22,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         fetchServer: () => dispatch(fetchServer(ownProps.match.params.serverId)),
         saveServer: (server) => dispatch(updateServer(server)),
         deleteServer: (serverId) => dispatch(deleteServer(serverId)),
-        leaveServer: () => dispatch(leaveServer(ownProps.match.params.serverId))
+        leaveServer: () => dispatch(leaveServer(ownProps.match.params.serverId)),
+        createChannel: (channel) => dispatch(createChannel(channel))
     };
 };
 

@@ -14,7 +14,11 @@ const messagesReducer = (state={}, action) => {
             }
             return newState;
         case RECEIVE_CHANNEL:
-            return Object.assign({}, action.channel.messages);
+            if(action.channel.messages !== undefined) {
+                return Object.assign({}, action.channel.messages);
+            } else {
+                return state;
+            }
         default:
             return state;
     }

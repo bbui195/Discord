@@ -121,7 +121,7 @@ class CreateServerModal extends React.Component {
                                 <div className="create-option" onClick={this.toggleModal("customize")}>
                                     For me and my friends
                                 </div>
-                                <p className="unsure">Not sure? you can <span className="skip" onClick={this.customize}>skip this question</span> for now.</p>
+                                <p className="unsure">Not sure? you can <span className="skip" onClick={this.toggleModal("customize")}>skip this question</span> for now.</p>
                                 <span className="back" onClick={this.toggleModal("createOptions")}>Back</span>
                             </div>
                         </CSSTransition>

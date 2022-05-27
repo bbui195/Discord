@@ -10,7 +10,8 @@ class Api::ChannelsController < ApplicationController
 
     def create
         @channel = Channel.new(channel_params)
-        @server = Server.find_by(channel_params[:server_id])
+        @channel.name = @channel.name.split.join("-")
+        @server = Server.find_by(id: channel_params[:server_id])
         if @server && @server.owner_id == current_user.id && @channel.save
             render :show
         else

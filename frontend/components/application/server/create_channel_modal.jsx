@@ -12,7 +12,7 @@ class CreateChannelModal extends React.Component {
 
     handleChange(e) {
         this.setState({
-            name: e.target.value
+            name: e.target.value.split(" ").join("-")
         });
     }
 
@@ -32,8 +32,13 @@ class CreateChannelModal extends React.Component {
                 <div className="dim"
                     onClick={this.props.cancel}></div>
                 <div className="confirmation-modal">
-                    <div>
-                        <h1>Create Channel</h1>
+                    <form onSubmit={(e)=>{
+                        e.preventDefault();
+                        this.props.confirm(this.state.name);
+                        }
+                    }>
+                    <div className="round">
+                        <h1 className="header">Create Channel</h1>
                         <div className="label">CHANNEL NAME</div>
                         <div className="input-wrapper">
                             <input type="text" className="text-input"
@@ -44,14 +49,15 @@ class CreateChannelModal extends React.Component {
                                 />
                         </div>
                     </div>
-                    <div className="confirm-options">
-                        <div className="cancel"
+                    <div className="confirm-options round">
+                        <div className="cancel round"
                             onClick={this.props.cancel}
                         >Cancel</div>
-                        <div className="confirm-text purple"
+                        <div className="confirm-text purple round"
                             onClick={()=>this.props.confirm(this.state.name)}
                         >Create Channel</div>
                     </div>
+                    </form>
                 </div>
             </div>
         </CSSTransition>
