@@ -151,7 +151,7 @@ class MessageIndex extends React.Component {
                     }
                 }
             />
-            <div className="message-index">
+            <div className={("message-index" + (this.props.messageable.type==="User"?" direct-messages":""))}>
                 <form
                     onSubmit={this.handleSubmit}
                 >
@@ -203,7 +203,7 @@ class MessageIndex extends React.Component {
                         </div>
                     </div>
                     <input type="text" className="message-input"
-                        placeholder={`Message #${this.props.channel.name}`}
+                        placeholder={`Message ${this.props.messageable.type==="User"?"@":"#"}${this.props.channel.name}`}
                         value={this.state.message}
                         onChange={this.handleChange("message")}
                         onKeyDown={(e) => e.key === "ArrowUp" ? this.editLast() : null}

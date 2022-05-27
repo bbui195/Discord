@@ -85,7 +85,6 @@ class SettingsModal extends React.Component {
     }
 
     render() {
-        
         return (
             <CSSTransition
                 in={this.props.showing}
@@ -101,7 +100,13 @@ class SettingsModal extends React.Component {
                     confirmText={this.props.delete.confirmText}
                     showing={this.state.deleteModal}
                     cancel={()=>this.setState({deleteModal: false})}
-                    confirm={this.props.delete.action}
+                    confirm={()=>{
+                        this.props.delete.action()
+                            .then(()=>this.setState({
+                                deleteModal: false,
+                                unsaved: false
+                            }))
+                    }}
                 />
 
                 <div className="settings-left">

@@ -7,9 +7,14 @@ import ChannelShow from "./channel_show";
 
 const mapStateToProps = (state, ownProps) => {
     const channelId = ownProps.match.params.channelId;
+    let users = {};
+    if(state.entities.channels[channelId]) {
+        users = state.entities.channels[channelId].users || {};
+    }
     return {
         channel: state.entities.channels[channelId],
-        messages: messagesFor(state, "Channel", channelId)
+        messages: messagesFor(state, "Channel", channelId),
+        users: Object.values(users)
     };
 };
 

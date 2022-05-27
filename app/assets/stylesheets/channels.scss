@@ -71,17 +71,17 @@
     }
 }
 
+.channel-top-bar {
+    user-select: none;
+    box-sizing: border-box;
+    height: 48px;
+    background-color: rgb(54, 57, 63);
+    line-height: 24px;
+    padding: 12px 16px 12px 16px;
+    border-bottom: 1px solid rgb(35, 37, 39);
+    box-shadow: 0 3px 5px -5px rgb(35, 37, 39);
+}
 .channel {
-    .channel-top-bar {
-        user-select: none;
-        box-sizing: border-box;
-        height: 48px;
-        background-color: rgb(54, 57, 63);
-        line-height: 24px;
-        padding: 12px 16px 12px 16px;
-        border-bottom: 1px solid rgb(35, 37, 39);
-        box-shadow: 0 3px 5px -5px rgb(35, 37, 39);
-    }
     .channel-content {
         display: flex;
         // justify-content: space-between;
@@ -102,6 +102,9 @@
 
 .message-index {
     width: calc(100% - 240px);
+    &.direct-messages{
+        width: 100%;
+    }
     // border: 1px solid red;
     display: flex;
     flex-direction: column;
@@ -135,6 +138,54 @@
             outline: none;
         }
     }
+}
+
+.channel-users-index .label {
+    color: rgb(142, 146, 151);
+    user-select: none;
+
+    font-weight: bold;
+    font-size: 12px;
+    margin: 20px 0px 6px 12px;
+}
+.user-index-item {
+    color: white;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0px 6px 0px 6px;
+    margin: 0px 6px;
+    height: 42px;
+    line-height: 42px;
+    // border: 1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 4px;
+    .profile {
+        display: inline-block;
+        border-radius: 100%;
+        background-color: rgb(118, 126, 138);
+        height: 36px;
+        width: 36px;
+        font-size: 20px;
+        line-height: 38px;
+        text-align: center;
+    }
+    .username {
+        display: inline-block;
+        padding-left: 8px;
+    }
+    &:hover {
+        background-color: rgb(60, 63, 69);
+    }
+    &:active {
+        background-color: rgb(70, 73, 79);
+    }
+    // &:first-child {
+    //     margin-top: 40px;
+    // }
 }
 
 .message {

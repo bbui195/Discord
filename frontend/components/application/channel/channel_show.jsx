@@ -63,7 +63,7 @@ class ChannelShow extends React.Component {
                             id: this.props.channel.id
                         }}
                         />
-                    <ChannelUsersIndex />
+                    <ChannelUsersIndex users={this.props.users}/>
                 </div>
             </div>
         );

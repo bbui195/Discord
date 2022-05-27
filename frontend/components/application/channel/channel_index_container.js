@@ -5,7 +5,8 @@ import ChannelIndex from "./channel_index";
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        channels: Object.values(state.entities.channels)
+        channels: Object.values(state.entities.channels),
+        channelsObject: state.entities.channels
     };
 };
 

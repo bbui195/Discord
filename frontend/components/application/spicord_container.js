@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { receiveMessage } from "../../actions/message_actions";
 import { openAddServerModal } from "../../actions/modal_actions";
 import { fetchPublicServers, fetchServer, fetchServers } from "../../actions/server_actions";
 import { logout } from "../../actions/session_actions";
@@ -9,7 +10,8 @@ const mapStateToProps = (state) => {
     return {
         loggedIn: Boolean(state.session.id),
         currentUser: state.entities.users[state.session.id],
-        servers: serversIn(state)
+        servers: serversIn(state),
+        currentUserId: state.session.id
         // servers: Object.values(state.entities.servers)
     };
 };
@@ -20,7 +22,8 @@ const mapDispatchToProps = (dispatch) => {
         openAddServerModal: () => dispatch(openAddServerModal()),
         fetchServers: () => dispatch(fetchServers()),
         fetchServer: (id) => dispatch(fetchServer(id)),
-        fetchPublicServers: () => dispatch(fetchPublicServers())
+        fetchPublicServers: () => dispatch(fetchPublicServers()),
+        receiveMessage: (message) => dispatch(receiveMessage(message))
     };
 };
 

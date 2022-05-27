@@ -47,7 +47,8 @@ class ServerShow extends React.Component {
     }
 
     toggleServerSettings() {
-        this.setState({settings: !this.state.settings})
+        // this.setState({settings: !this.state.settings})
+        this.setState({settings: false});
     }
 
     toggleCreateChannel() {
@@ -89,7 +90,9 @@ class ServerShow extends React.Component {
                                 {this.props.owner? 
                                     <>
                                     <div className="dropdown-button"
-                                        onClick={this.toggleServerSettings}>Server Settings<i className="fa-solid fa-gear"/></div>
+                                        // onClick={this.toggleServerSettings}
+                                        onClick={() => this.setState({settings: true})}
+                                        >Server Settings<i className="fa-solid fa-gear"/></div>
                                     <div className="dropdown-button"
                                         onClick={this.toggleCreateChannel}
                                         >Create Channel<i className="fa-solid fa-circle-plus"/></div>

@@ -38,29 +38,10 @@ class ServerIndex extends React.Component {
                         >{server.name.split(" ").map(word => word.charAt(0)).join("").slice(0, 4)}</NavLink>
                 })}
                 
-                {/* <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a>
-                <a className="index-item server" name="testing123">123</a> */}
-                
-                {/* <NavLink to="placeholder" className="index-item" name="Placeholder"/> */}
-                {/* <NavLink to="placeholder2" className="index-item" name="Placeholder2"/> */}
                 <div id="server-join" className="index-item" onClick={this.props.openAddServerModal}><i className="fa-solid fa-plus"/></div>
-                <div id="server-join" className="index-item public"><i className="fa-solid fa-compass"/></div>
+                <div id="server-join" className="index-item public"
+                    onClick={this.props.openAddServerModal}
+                ><i className="fa-solid fa-compass"/></div>
             </div>
         )
     }
