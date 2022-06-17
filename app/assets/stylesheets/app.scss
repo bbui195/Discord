@@ -1,0 +1,29 @@
+
+@import "./reset.scss";
+
+@font-face{
+    font-family: "Ginto";
+    src: font-url("GintoMedium.woff") format("woff");
+}
+
+@font-face{
+	font-family: "Ginto Normal";
+    src: font-url("GintoNormal.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Ginto Nord";
+    src: font-url("GintoNord.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Whitney";
+    src: font-url("WhitneyMedium.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Whitney Book";
+    src: font-url("WhitneyBook.woff") format("woff");
+}
+
+@import "styles/*";

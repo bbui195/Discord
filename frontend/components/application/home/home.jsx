@@ -39,7 +39,8 @@ class Home extends React.Component {
                     <div className="channel-users-index">
                     {this.props.users.map((user) => {
                         return <NavLink to={`/users/${user.id}`}
-                            key={user.id}>
+                            key={user.id}
+                            >
                             <div className="user-index-item">
                                 <div className="profile">
                                     <i className="fa-brands fa-discord"/>
