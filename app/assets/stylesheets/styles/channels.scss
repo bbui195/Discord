@@ -1,3 +1,10 @@
+.channel-index-container {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .channel-index {
     user-select: none;
     .channel-index-item {

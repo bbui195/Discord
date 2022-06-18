@@ -57,6 +57,8 @@ class SessionForm extends React.Component {
     
     render() {
         return (
+            <>
+            <img src="assets/login_background.svg" className = "login-background"/>
             <CSSTransition
                 in={true}
                 appear={true}
@@ -96,6 +98,7 @@ class SessionForm extends React.Component {
                 </p>
             </form>
             </CSSTransition>
+            </>
         );  
     }
 }

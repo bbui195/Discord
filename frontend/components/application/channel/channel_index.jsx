@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SettingsModal from "../server/settings_modal";
+import UserOptions from "../user_options";
 
 class ChannelIndex extends React.Component {
     constructor(props) {
@@ -43,6 +44,7 @@ class ChannelIndex extends React.Component {
 
     render() {
         return (
+            <div className="channel-index-container">
             <div className="channel-index">
                 {this.props.channels.map((channel) => {
                     return <div className="channel-index-item"
@@ -95,9 +97,12 @@ class ChannelIndex extends React.Component {
                     saveItem={this.props.updateChannel}
                 />
             </div>
+            <UserOptions />
+            </div>
         );
     }
 }
+
 
 export default ChannelIndex;
 
