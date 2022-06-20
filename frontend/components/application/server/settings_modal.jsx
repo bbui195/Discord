@@ -10,6 +10,7 @@ class SettingsModal extends React.Component {
         this.state = {
             selected: this.props.tabs[0].name,
             name: this.props.name,
+            username: this.props.username,
             unsaved: false,
             deleteModal: false,
             item: this.props.item
@@ -48,13 +49,14 @@ class SettingsModal extends React.Component {
     componentDidUpdate() {
         let unsaved = false;
         //check unsaved
-        if(this.state.name !== this.props.name) {
+        if(this.state.name !== this.props.name || this.state.username !== this.props.username) {
             unsaved = true;
         }
         if(this.props.item !== this.state.item) {
             this.setState({
                 item: this.props.item,
                 name: this.props.name,
+                username: this.props.username,
                 unsaved: false
             });
         }
@@ -67,12 +69,18 @@ class SettingsModal extends React.Component {
 
     resetSettings() {
         this.setState({
-            name: this.props.name
+            name: this.props.name,
+            username: this.props.username
         });
     }
 
     saveSettings() {
-        let newItem = Object.assign({}, this.props.item, {name: this.state.name});
+        let newItem = Object.assign({}, this.props.item,
+            {
+                name: this.state.name,
+                username: this.state.username
+            }
+        );
         this.props.saveItem(newItem);
     }
 

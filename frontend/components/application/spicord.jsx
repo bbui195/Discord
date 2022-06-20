@@ -33,10 +33,10 @@ class Spicord extends React.Component{
                 <ModalsContainer />
                 {/* <ServerIndex openAddServerModal={this.props.openAddServerModal} /> */}
                 <ServerIndex {...this.props} />
-                <div className="logged-in-container">
+                {/* <div className="logged-in-container">
                     <p>Logged in as {this.props.currentUser ? this.props.currentUser.username : null}</p>
                     <button onClick={this.props.logout}>Logout</button>
-                </div>
+                </div> */}
                 
                 <Switch>
                     {/* <Route path="/placeholder" render={()=><div/>}/>
