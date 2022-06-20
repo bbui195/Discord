@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import MessageIndex from "../message/message_index";
-
+import FriendIndexContainer from "./friend_index_container";
 
 class Home extends React.Component {
     constructor(props) {
@@ -72,7 +72,8 @@ class Home extends React.Component {
                                 }}
                             />
                         }} />
-                        <Route path="/" render={()=>null} />
+                        {/* <Route path="/" render={()=>null} /> */}
+                        <Route exact path="/" component={FriendIndexContainer} />
                     </Switch>
                 </div>
             </div>
