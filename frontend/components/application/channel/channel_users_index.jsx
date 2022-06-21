@@ -20,6 +20,9 @@ class ChannelUsersIndex extends React.Component {
                         <div className="username">
                             {user.username}
                         </div>
+                        <div className="dm-dropdown">
+                            Direct Message
+                        </div>
                     </div>
                 })}
             </div>

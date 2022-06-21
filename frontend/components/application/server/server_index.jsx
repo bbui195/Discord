@@ -40,7 +40,7 @@ class ServerIndex extends React.Component {
                 
                 <div id="server-join" className="index-item" onClick={this.props.openAddServerModal}><i className="fa-solid fa-plus"/></div>
                 <div id="server-join" className="index-item public"
-                    onClick={this.props.openAddServerModal}
+                    onClick={this.props.openJoinPublicModal}
                 ><i className="fa-solid fa-compass"/></div>
             </div>
         )

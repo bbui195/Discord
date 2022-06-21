@@ -4,6 +4,7 @@ import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import MessageIndex from "../message/message_index";
 import FriendIndexContainer from "./friend_index_container";
+import UserOptions from "../user_options";
 
 class Home extends React.Component {
     constructor(props) {
@@ -32,26 +33,30 @@ class Home extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <div className="main">
                 <div className="channel-index">
-                    <div className="home-index">Friends</div>
-                    <div className="channel-users-index">
-                    {this.props.users.map((user) => {
-                        return <NavLink to={`/users/${user.id}`}
-                            key={user.id}
-                            >
-                            <div className="user-index-item">
-                                <div className="profile">
-                                    <i className="fa-brands fa-discord"/>
+                    <div>
+                        <div className="home-index">Direct Messages</div>
+                        <div className="channel-users-index">
+                        {this.props.users.map((user) => {
+                            return <NavLink to={`/users/${user.id}`}
+                                key={user.id}
+                                >
+                                <div className="user-index-item">
+                                    <div className="profile">
+                                        <i className="fa-brands fa-discord"/>
+                                    </div>
+                                    <div className="username">
+                                        {user.username}
+                                    </div>
                                 </div>
-                                <div className="username">
-                                    {user.username}
-                                </div>
-                            </div>
-                        </NavLink>
-                    })}
+                            </NavLink>
+                        })}
+                        </div>
                     </div>
+                    <UserOptions />
                 </div>
                 <div className="main-show">
                     {/* <MessageIndex
@@ -61,7 +66,9 @@ class Home extends React.Component {
                             id: this.props.channel.id
                         }}
                     /> */}
-                    <div className="channel-top-bar"></div>
+                    <div className="channel-top-bar">
+                        {this.props.user.id !== -1 ? "@ " + this.props.user.username : null}
+                    </div>
                     <Switch>
                         <Route path="/users/:userId" render={()=>{
                             return <MessageIndex 

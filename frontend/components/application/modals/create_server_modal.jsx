@@ -17,6 +17,25 @@ class CreateServerModal extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleCreate = this.handleCreate.bind(this);
         this.handleJoin = this.handleJoin.bind(this);
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log(props);
+        if(props.modals.startModal) {
+            this.state.createOptions = false;
+            this.state[props.modals.startModal] = true;
+        }
+    }
+
+    componentDidMount() {
+        if(this.state.publicServers) {
+            this.setState({
+                fetched: true
+            });
+            this.props.fetchPublicServers();
+        }
     }
 
     componentDidUpdate() {

@@ -198,6 +198,30 @@
     // &:first-child {
     //     margin-top: 40px;
     // }
+    .dm-dropdown {
+        display: none;
+        position: absolute;
+        right: 100%;
+        width: fit-content;
+        color: rgb(174, 176, 179);
+        background-color: rgb(24, 25, 28);
+        border-radius: 4px;
+        padding: 6px 8px 6px 8px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 14px;
+        border-radius: 2px;
+        &:hover {
+            background-color: rgb(34, 35, 38);
+            color: white;
+        }
+        &:active {
+            background-color: rgb(39, 40, 43);
+        }
+    }
+    &:hover .dm-dropdown{
+        display: block;
+    }
 }
 
 .message {

@@ -6,7 +6,8 @@ export const CLOSE_MODALS = "CLOSE_MODALS";
 export const openModal = (modal) => {
     return {
         type: OPEN_MODAL,
-        modal
+        modal: "addServer",
+        startModal: modal
     };
 };
 
@@ -24,5 +25,9 @@ export const closeModals = () => {
 };
 
 export const openAddServerModal = () => {
-    return openModal("addServer");
+    return openModal();
 };
+
+export const openJoinPublicModal = () => {
+    return openModal("publicServers");
+}
