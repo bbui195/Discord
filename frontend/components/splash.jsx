@@ -29,6 +29,7 @@ class Splash extends React.Component {
                     </div>
                     <div className="body-background">
                         <div className="body-background-inside">
+                            {/* <img src='./assets/images/clouds.svg' className="clouds" /> */}
                             <img src="assets/clouds.svg" className="clouds" />
                             <img src="assets/left.svg" className="left" />
                             <img src="assets/right.svg" className="right" />
