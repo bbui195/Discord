@@ -58,6 +58,9 @@
     .button {
         border-radius: 1000px;
         transition: all 200ms;
+        i {
+            transition: all 200ms;
+        }
         &.white {
             background-color: white;
             color: rgb(35, 39, 42);
@@ -67,6 +70,9 @@
             }
             &:hover {
                 color: rgb(87, 100, 239);
+                i {
+                    color: rgb(81, 100, 239);
+                }
             }
         }
         &.black {
