@@ -55,7 +55,6 @@ class UserOptions extends React.Component {
                     prompt: `Are you sure you want to log out?`,
                     confirmText: "Log Out",
                     action: ()=> {
-                        console.log(this.props);
                         this.props.logout()
                     }
                 }}
