@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
+import { updateUser } from "../../actions/user_actions";
 import SettingsModal from "./server/settings_modal";
 
 const mapStateToProps = (state) => {
@@ -12,6 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         logout: () => dispatch(logout()),
+        updateUser: (user) => dispatch(updateUser(user))
     };
 };
 
@@ -83,7 +85,7 @@ class UserOptions extends React.Component {
                     }
                 ]}
                 item={this.state.channel}
-                saveItem={this.props.updateChannel}
+                saveItem={this.props.updateUser}
             />
         </div>
     }
