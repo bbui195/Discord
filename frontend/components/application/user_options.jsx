@@ -67,6 +67,7 @@ class UserOptions extends React.Component {
                                     className="text-input"
                                     value={this.state.username}
                                     onChange={this.handleChange("username")}
+                                    disabled={this.props.username === "demo-user"}
                                 />
                                 {this.props.username === "demo-user" ? 
                                 <div className="cannot-change">

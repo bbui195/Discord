@@ -8,7 +8,12 @@ const channelsReducer = (state={}, action) => {
     let newState = Object.assign({}, state);
     switch(action.type) {
         case RECEIVE_SERVER:
-            return Object.assign({}, action.server.channels);
+            let newerState = {};
+            Object.keys(action.server.channels).forEach(id => {
+                newerState[id] = Object.assign(newState[id] || {}, action.server.channels[id]);
+            });
+            // return Object.assign({}, action.server.channels);
+            return newerState;
         case RECEIVE_CHANNEL: //messages 
             let channel = Object.assign({}, action.channel);
             delete channel["messages"];
