@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 class ChannelUsersIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -20,9 +20,9 @@ class ChannelUsersIndex extends React.Component {
                         <div className="username">
                             {user.username}
                         </div>
-                        <div className="dm-dropdown">
+                        <Link to={`/users/${user.id}`} className="dm-dropdown">
                             Direct Message
-                        </div>
+                        </Link>
                     </div>
                 })}
             </div>
