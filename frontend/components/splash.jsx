@@ -11,9 +11,9 @@ class Splash extends React.Component {
                 <div className="splash-nav">
                     <div className="logo"><i className="fa-brands fa-discord"/><span className="spicord">Spicord</span></div>
                     <div className="links">
-                        <a href="#">Github</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Portfolio</a>
+                        <a href="https://github.com/bbui195/">Github</a>
+                        <a href="https://www.linkedin.com/in/brian-bui-39545020a/">LinkedIn</a>
+                        <a href="https://bbui195.github.io/bbui195/">Portfolio</a>
                     </div>
                     <Link to="/login" className="button small white"
                     >Login</Link>
